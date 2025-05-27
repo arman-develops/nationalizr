@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 <body>
@@ -12,10 +13,9 @@
             <header>
                 <h3>Nationalizr</h3>
                 <div class="dev">
-                    <a href="github.com/arman-develops">github</a>
-                    <!-- To do insert github icon here-->
-                    <a href="linkedin.com/ke/in/victor-amon">linkedin</a>
-                    <!-- To do: insert linked in icon here -->
+                    <a href="github.com/arman-develops"><i class="fa-brands fa-github"></i></a>
+                    <a href="linkedin.com/ke/in/victor-amon"><i class="fa-brands fa-linkedin"></i></a>
+                    
                 </div>
             </header>
         </div>
@@ -24,15 +24,16 @@
             
             <form action="#" class="checker-form">
                 <input type="text" name="name" id="name" placeholder="Enter your name...">
-                <button type="submit">Check</button>
+                <button type="submit" id="check"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
-            <div class="results">
-                
-            </div>
+            
         </div>
+        <div class="results" id="results">
+            </div>
         <div class="signoff">
             <p>Built by <a href="github.com/arman-develops">Amon</a></p>
         </div>
     </div>
+    <script src="checker.js"></script>
 </body>
 </html>
