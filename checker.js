@@ -2,7 +2,7 @@ const checkBtn = document.getElementById("check")
 const checkInput = document.getElementById("name")
 const resultsDiv = document.getElementById("results")
 
-const API_KEY = `9785b5daa415b3de7d2cd8e201f92359`
+// const API_KEY = ``
 
 checkBtn.addEventListener("click", async function(e) {
     e.preventDefault();
@@ -16,7 +16,7 @@ checkBtn.addEventListener("click", async function(e) {
     }
 
     try {
-        const response = await fetch(`https://api.nationalize.io/?name=${CheckValue}&apiKey=${API_KEY}`)
+        const response = await fetch(`https://api.nationalize.io/?name=${CheckValue}`)
         const results = await response.json();      
         let {name, country} = results;
         
