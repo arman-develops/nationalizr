@@ -11,7 +11,11 @@ checkBtn.addEventListener("click", async function(e) {
     
     //input validation
     if(CheckValue === "") {
-        checkResults.textContent = "Please Provide a name"
+        resultsDiv.innerHTML = `
+                <div class="error-container">
+                    <p class="error-message">No Name Specified</p>
+                </div>
+            `
         return
     }
 
@@ -20,7 +24,7 @@ checkBtn.addEventListener("click", async function(e) {
         const results = await response.json();      
         let {count, country} = results;
         
-        if(count > 0) {
+        if(country.length) {
             country.forEach(nationalityList => {
                 let {country_id, probability} = nationalityList
                 const countryName = convertCodeToCountry(country_id)
@@ -46,7 +50,7 @@ checkBtn.addEventListener("click", async function(e) {
     } catch (error) {
         let errorContent = `
                 <div class="error-container">
-                    <p class="error-message">error.message</p>
+                    <p class="error-message">Something Broke</p>
                 </div>
             `
         resultsDiv.innerHTML = errorContent
