@@ -18,21 +18,29 @@ checkBtn.addEventListener("click", async function(e) {
     try {
         const response = await fetch(`https://api.nationalize.io/?name=${CheckValue}`)
         const results = await response.json();      
-        let {name, country} = results;
+        let {count, country} = results;
         
-        country.forEach(nationalityList => {
-            let {country_id, probability} = nationalityList
-            const countryName = convertCodeToCountry(country_id)
-            let resultContent = `
-                <div id="nationalityItem" class="nationalityItem">
-                    <div class="probabilities" id="probabilities">
-                        <div class="country" id="country">${country_id} (${countryName})</div>
-                        <div class="probability" id="probability">${probability.toFixed(4) * 100}%</div>
+        if(count > 0) {
+            country.forEach(nationalityList => {
+                let {country_id, probability} = nationalityList
+                const countryName = convertCodeToCountry(country_id)
+                let resultContent = `
+                    <div id="nationalityItem" class="nationalityItem">
+                        <div class="probabilities" id="probabilities">
+                            <div class="country" id="country">${country_id} (${countryName})</div>
+                            <div class="probability" id="probability">${probability.toFixed(4) * 100}%</div>
+                        </div>
                     </div>
+                `
+                resultsDiv.innerHTML += resultContent
+            });
+        }else {
+            let errorContent = `
+                <div class="error-container">
+                    <p class="error-message"></p>
                 </div>
             `
-            resultsDiv.innerHTML += resultContent
-        });
+        }
 
     } catch (error) {
         throw new Error(error)
