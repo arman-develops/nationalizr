@@ -133,3 +133,15 @@ button:hover {
     font-weight: 700;
     font-size: 0.9rem;
 }
+
+.error-container {
+    background-color: var(--error-background);
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 1rem 2rem;
+}
+
+.error-message {
+    color: var(--error-text)
+}

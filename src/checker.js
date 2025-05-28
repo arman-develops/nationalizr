@@ -37,13 +37,19 @@ checkBtn.addEventListener("click", async function(e) {
         }else {
             let errorContent = `
                 <div class="error-container">
-                    <p class="error-message"></p>
+                    <p class="error-message">No Nationality found</p>
                 </div>
             `
+            resultsDiv.innerHTML = errorContent
         }
 
     } catch (error) {
-        throw new Error(error)
+        let errorContent = `
+                <div class="error-container">
+                    <p class="error-message">error.message</p>
+                </div>
+            `
+        resultsDiv.innerHTML = errorContent
     }
 
 })
